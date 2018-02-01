@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context="dynamicdrillers.sagy.SearchVillagesActivity">
 
+    <include layout="@layout/simple_toolbar_with_back_button"  android:id="@+id/simple_toolbar"/>
+
 </android.support.constraint.ConstraintLayout>
