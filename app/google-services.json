@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "867106039420",
+    "firebase_url": "https://sagy-9be59.firebaseio.com",
+    "project_id": "sagy-9be59",
+    "storage_bucket": "sagy-9be59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867106039420:android:7d685445405687af",
+        "android_client_info": {
+          "package_name": "dynamicdrillers.sagy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867106039420-9bm3bqrc8n86olf373lk664uvsgjo7nc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoHfTq_43Vm1YkWKySgWfLPfket4Sl7ro"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
