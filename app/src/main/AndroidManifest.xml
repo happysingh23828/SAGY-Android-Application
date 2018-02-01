@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SplashScreenActivity" />
+        <activity android:name=".MemberProfileActivity" />
+        <activity android:name=".SearchVillagesActivity" />
+        <activity android:name=".VillageInforamtionActivity" />
+        <activity android:name=".VIdeosActivity" />
+        <activity android:name=".OneRecentActivity" />
+        <activity android:name=".OneVillageWorkActivity" />
     </application>
 
 </manifest>
