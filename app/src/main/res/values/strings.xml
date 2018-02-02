@@ -18,4 +18,7 @@
     <string name="constituency">Constituency</string>
     <string name="state">State</string>
     <string name="village_adopted">Village Adopted :</string>
+    <string name="sansad_adrash_gram">SANSAD ADRASH GRAM</string>
+    <string name="yojana">YOJANA</string>
+    <string name="sagy">(SAGY)</string>
 </resources>
