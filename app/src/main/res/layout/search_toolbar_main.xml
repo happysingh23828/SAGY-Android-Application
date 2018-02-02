@@ -23,17 +23,20 @@
             android:background="@drawable/title1"
             android:orientation="horizontal">
 
-            <Button
+            <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1.2"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.5"
-                android:background="@drawable/menu"
-                android:paddingTop="10dp" />
+                android:padding="18dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_menu_black_24dp"
+                 />
 
             <EditText
                 android:id="@+id/search_edittext"
                 android:layout_width="0dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="7"
@@ -41,17 +44,16 @@
                 android:text="@string/search"
                 android:textColor="@color/searchtext"
                 android:textColorLink="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <Button
 
             android:id="@+id/filter_btn"
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1.5"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1.2"
             android:background="@drawable/filter" />
     </LinearLayout>
 
