@@ -118,7 +118,7 @@
                     android:textSize="16sp"
                     android:fontFamily="sans-serif-smallcaps"
                     android:textStyle="bold"
-                    />
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:id="@+id/mp_info_dob"
@@ -163,7 +163,7 @@
                     android:textSize="16sp"
                     android:fontFamily="sans-serif-smallcaps"
                     android:textStyle="bold"
-                    />
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:id="@+id/mp_info_residence"
@@ -207,7 +207,8 @@
                     android:background="@color/purple"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:id="@+id/mp_info_constituency"
@@ -252,7 +253,8 @@
                     android:background="@color/lightblue"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:id="@+id/mp_info_state"
