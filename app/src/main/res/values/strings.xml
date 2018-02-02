@@ -9,4 +9,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="DummyText">Something</string>
+    <string name="work_in_progress">Work In Progress</string>
+    <string name="more">More</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="residence">Residence</string>
+    <string name="constituency">Constituency</string>
+    <string name="state">State</string>
+    <string name="village_adopted">Village Adopted :</string>
 </resources>

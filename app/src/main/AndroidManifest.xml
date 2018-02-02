@@ -23,6 +23,10 @@
         <activity android:name=".VIdeosActivity" />
         <activity android:name=".OneRecentActivity" />
         <activity android:name=".OneVillageWorkActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
