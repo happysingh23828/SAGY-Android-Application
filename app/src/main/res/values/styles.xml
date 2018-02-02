@@ -9,6 +9,10 @@
     </style>
 
     <style name="AppTheme.NoActionBar">
+        <!-- remove shadow below action bar -->
+         <item name="android:elevation">0dp</item>
+        <!-- Support library compatibility -->
+        <item name="elevation">0dp</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
