@@ -13,7 +13,7 @@ public class VillageInforamtionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_village_inforamtion);
 
-        toolbar = (Toolbar)findViewById(R.id.simple_tool_bar);
+        toolbar = (Toolbar)findViewById(R.id.single_work_village_toolbar);
         getSupportActionBar().setTitle("Hagshag");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
