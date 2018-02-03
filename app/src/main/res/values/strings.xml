@@ -10,4 +10,11 @@
 
     <string name="action_settings">Settings</string>
     <string name="search">Search...</string>
+    <string name="check_adopted_villages">Check Adopted Villages</string>
+    <string name="choose_constituency">Choose Constituency</string>
+    <string name="village_name">Village name</string>
+    <string name="tahshil_block">Tahshil/block</string>
+    <string name="thashil_name">thashil name</string>
+    <string name="more_info">More Info</string>
+    <string name="mp_name">Mp name</string>
 </resources>
