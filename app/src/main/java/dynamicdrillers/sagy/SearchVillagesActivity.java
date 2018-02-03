@@ -59,7 +59,7 @@ public class SearchVillagesActivity extends AppCompatActivity {
             public void onClick(View view) {
 
               FirebaseDatabase.getInstance()
-                        .getReference().child("state").child(selectedstate).child(id).addValueEventListener(new ValueEventListener() {
+                        .getReference().child("Adobted_villages").child(id).addValueEventListener(new ValueEventListener() {
 
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -112,7 +112,7 @@ public class SearchVillagesActivity extends AppCompatActivity {
 
 
                 Query query = FirebaseDatabase.getInstance()
-                        .getReference().child("state").child(selectedstate);
+                        .getReference().child("Adobted_villages").orderByChild("state").equalTo(selectedstate);
 
                 FirebaseListOptions<VillageModal> options = new FirebaseListOptions.Builder<VillageModal>()
                         .setLayout(R.layout.simple)//Note: The guide doesn't mention this method, without it an exception is thrown that the layout has to be set.
