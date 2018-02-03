@@ -29,7 +29,7 @@
                 android:id="@+id/open_nav_icon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_weight="0.8"
                 android:padding="15dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_menu_black_24dp"
