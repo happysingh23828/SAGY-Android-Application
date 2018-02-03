@@ -31,8 +31,6 @@ public class SearchVillagesActivity extends AppCompatActivity {
     private Spinner stateSpinner,districtSpinner;
     private String state[] = {"mp","up"};
     private String selectedstate="mp";
-    private List<String> messageList = new ArrayList<>();
-    private ListView listView;
     private FirebaseListAdapter<VillageModal> adapter;
     private String id;
     private TextView village,tahshil_name,mp_name;

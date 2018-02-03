@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.FirebaseDatabase;
@@ -25,16 +26,25 @@ public class MainActivity extends AppCompatActivity{
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    Button button;
-    ImageView drawer_open_icon;
-
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    private Button button;
+    private ImageView drawer_open_icon;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private TextView searchtexview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        searchtexview = findViewById(R.id.search_textview);
+        searchtexview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                  Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                  startActivity(intent);
+            }
+        });
 
         //Setting Drawer Navigation By Happy Singh
 
