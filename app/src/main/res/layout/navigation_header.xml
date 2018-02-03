@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@drawable/gradient_navigation_header">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/sansad_adrash_gram"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/yojana"
+            android:textSize="23sp"
+
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:text="@string/sagy"
+            android:textSize="27sp"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

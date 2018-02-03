@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/items_app">
+
+        <item android:id="@+id/Dashboard_item"
+            android:title="Dashboard"
+            android:icon="@drawable/ic_dashboard_black_24dp">
+
+        </item>
+
+
+
+        <item android:id="@+id/Complaints_item"
+            android:title="Complaints"
+            android:icon="@drawable/ic_email_black_24dp">
+
+        </item>
+
+
+
+        <item android:id="@+id/Notifications_item"
+            android:title="Notifications"
+            android:icon="@drawable/ic_notifications_black_24dp">
+
+        </item>
+
+
+
+
+        <item android:id="@+id/Recent_ACtivity_item"
+            android:title="Recent Activities"
+            android:icon="@drawable/ic_local_activity_black_24dp">
+
+        </item>
+
+
+
+
+        <item android:id="@+id/Videos"
+            android:title="Videos"
+            android:icon="@drawable/ic_video_library_black_24dp">
+
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/items_extra">
+        <item android:id="@+id/about_app"
+            android:title="About App"
+            android:icon="@drawable/ic_info_black_24dp"></item>
+
+        <item android:id="@+id/about_sagy"
+            android:title="About SAGY"
+            android:icon="@drawable/ic_new_releases_black_24dp"></item>
+
+        <item android:id="@+id/visit_website"
+            android:title="Visit Website"
+            android:icon="@drawable/ic_web_black_24dp"></item>
+    </group>
+</menu>

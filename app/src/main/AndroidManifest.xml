@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".SplashScreenActivity" />
         <activity android:name=".MemberProfileActivity" />
-        <activity android:name=".SearchVillagesActivity" />
+        <activity android:name=".SearchVillagesActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".VillageInforamtionActivity" />
         <activity android:name=".VIdeosActivity" />
         <activity android:name=".OneRecentActivity" />
