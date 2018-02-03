@@ -17,4 +17,15 @@
     <string name="thashil_name">thashil name</string>
     <string name="more_info">More Info</string>
     <string name="mp_name">Mp name</string>
+    <string name="DummyText">Something</string>
+    <string name="work_in_progress">Work In Progress</string>
+    <string name="more">More</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="residence">Residence</string>
+    <string name="constituency">Constituency</string>
+    <string name="state">State</string>
+    <string name="village_adopted">Village Adopted :</string>
+    <string name="sansad_adrash_gram">SANSAD ADRASH GRAM</string>
+    <string name="yojana">YOJANA</string>
+    <string name="sagy">(SAGY)</string>
 </resources>

@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#1A237E</color>
     <color name="colorAccent">#FF4081</color>
     <color name="searchtext">#bcaaa4</color>
+
+    <color name="search_toolbar_color">#303F9F</color>
+    <color name="lightgray">#EEEEEE</color>
+    <color name="purple">#8200AF</color>
+    <color name="green">#00AF17</color>
+    <color name="lightblue">#0079AF</color>
+
 </resources>
