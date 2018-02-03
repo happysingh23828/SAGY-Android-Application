@@ -18,12 +18,20 @@
         </activity>
         <activity android:name=".SplashScreenActivity" />
         <activity android:name=".MemberProfileActivity" />
-        <activity android:name=".SearchVillagesActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".SearchVillagesActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".VillageInforamtionActivity" />
         <activity android:name=".VIdeosActivity" />
         <activity android:name=".OneRecentActivity" />
         <activity android:name=".OneVillageWorkActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".AboutAppActivity" />
+        <activity android:name=".AboutSAGYActivity"></activity>
     </application>
 
 </manifest>

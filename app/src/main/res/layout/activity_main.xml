@@ -1,40 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+
+<android.support.v4.widget.DrawerLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="dynamicdrillers.sagy.MainActivity">
-    <android.support.design.widget.AppBarLayout
+    android:id="@+id/drawer_main">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:elevation="0dp">
-        <include layout="@layout/search_toolbar_main" android:id="@+id/TestChatToolBar"/>
+        android:layout_height="match_parent"
+        tools:context="dynamicdrillers.sagy.MainActivity">
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <include
+                android:id="@+id/TestChatToolBar"
+                layout="@layout/search_toolbar_main" />
 
 
 
-    </android.support.design.widget.AppBarLayout>
+        </android.support.design.widget.AppBarLayout>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/main_tablayout"
+        <android.support.design.widget.TabLayout
+            android:id="@+id/main_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:background="@color/colorPrimary"
+            app:tabIndicatorColor="@color/common_google_signin_btn_text_dark_default"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/common_google_signin_btn_text_dark_pressed"
+            app:tabTextColor="#D7CCC8">
+
+        </android.support.design.widget.TabLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#EEEEEE"></android.support.v4.view.ViewPager>
+
+    </LinearLayout>
+
+
+    <android.support.design.widget.NavigationView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:background="@color/colorPrimary"
-        app:tabIndicatorColor="@color/common_google_signin_btn_text_dark_default"
-        app:tabMode="scrollable"
-        app:tabSelectedTextColor="@color/common_google_signin_btn_text_dark_pressed"
-        app:tabTextColor="#D7CCC8">
+        android:layout_height="match_parent"
+        android:id="@+id/main_activity_nav"
+        app:menu="@menu/drawer_menu_items"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/navigation_header"
+        >
 
-    </android.support.design.widget.TabLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/main_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#EEEEEE"></android.support.v4.view.ViewPager>
+    </android.support.design.widget.NavigationView>
 
-</LinearLayout>
+
+
+</android.support.v4.widget.DrawerLayout>
+
+
