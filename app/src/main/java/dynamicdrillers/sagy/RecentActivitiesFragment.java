@@ -1,6 +1,7 @@
 package dynamicdrillers.sagy;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -63,6 +65,14 @@ public class RecentActivitiesFragment extends Fragment {
             protected void onBindViewHolder(@NonNull RecentActivityViewHolder holder, int position, @NonNull ModelRecent model) {
                 holder.setTitle(model.getTitle());
                 holder.setDescription(model.getDescription());
+                final String activityid = getRef(position).getKey().toString();
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getContext(),OneRecentActivity.class));
+                        Toast.makeText(getContext(), activityid, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override

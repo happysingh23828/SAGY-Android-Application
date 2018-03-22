@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,10 +40,13 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private TextView searchtexview;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         searchtexview = findViewById(R.id.search_textview);
         searchtexview.setOnClickListener(new View.OnClickListener() {
@@ -75,25 +79,28 @@ public class MainActivity extends AppCompatActivity {
                     Fragment fragment =null;
                 switch (item.getItemId()) {
                     case R.id.Dashboard_item:
+                        viewPager.setCurrentItem(0);
+                        drawerLayout.closeDrawer(Gravity.START);
                         Toast.makeText(getBaseContext(), "DashBoard Clicked", Toast.LENGTH_SHORT).show();
 
 
                         break;
 
                     case R.id.Notifications_item:
-
+                        viewPager.setCurrentItem(2);
+                        drawerLayout.closeDrawer(Gravity.START);
                         Toast.makeText(getBaseContext(), "Notification Clicked", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.Complaints_item:
-//                        FragmentManager fragmentManager = getFragmentManager();
-//                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                        ComplaintFragment complaintFragment =new ComplaintFragment();
-//                        fragmentTransaction.replace(R.id.Complaint_fragment,complaintFragment);
-//                        fragmentTransaction.commit();
+                        viewPager.setCurrentItem(1);
+                        drawerLayout.closeDrawer(Gravity.START);
                         break;
 
                     case R.id.Recent_ACtivity_item:
+
+                        viewPager.setCurrentItem(3);
+                        drawerLayout.closeDrawer(Gravity.START);
                         Toast.makeText(getBaseContext(), "Recent Activity  Clicked", Toast.LENGTH_SHORT).show();
                         break;
 
@@ -134,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.main_tablayout);
         tabLayout.setupWithViewPager(viewPager);
+
 
         button = findViewById(R.id.filter_btn);
         button.setOnClickListener(new View.OnClickListener() {

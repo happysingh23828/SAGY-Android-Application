@@ -1,6 +1,7 @@
 package dynamicdrillers.sagy;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -161,6 +162,7 @@ public class DashboardFragment extends Fragment {
                             holder.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
+                                    startActivity(new Intent(getContext(),OneVillageWorkActivity.class));
                                     Toast.makeText(getContext(), villageid, Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -198,7 +200,7 @@ public class DashboardFragment extends Fragment {
             }
         };
         mp.setAdapter(mpfirebaserecycleradapter);
-        firebaseRecyclerAdapter.startListening();
+        mpfirebaserecycleradapter.startListening();
 
     }
     public  static class ModelVillageViewHolder extends RecyclerView.ViewHolder{

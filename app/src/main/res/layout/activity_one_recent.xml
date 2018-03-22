@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="dynamicdrillers.sagy.OneRecentActivity">
+    <ImageView
+        android:id="@+id/recent_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/slider1"
+        android:elevation="40dp"/>
+    <Button
+        android:id="@+id/recent_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="PM Adopted A Village"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:background="#00008e" />
+    <TextView
+        android:id="@+id/recent_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textStyle="normal|bold"
+        android:text="What is Lorem Ipsum? Lorem Ipsum is simply dummy text
+of the printing and typesetting What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book v
+ What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+ industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"/>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
