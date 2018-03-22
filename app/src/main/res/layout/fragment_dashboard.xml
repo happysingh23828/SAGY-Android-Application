@@ -147,6 +147,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Latest MP Added"
+            android:layout_margin="10dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#00008b"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mp_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Latest Adopted Villages"
             android:layout_margin="10dp"
             android:textSize="30sp"
@@ -159,6 +177,7 @@
             android:scrollbars="horizontal">
 
         </android.support.v7.widget.RecyclerView>
+
 
     </LinearLayout>
 </ScrollView>

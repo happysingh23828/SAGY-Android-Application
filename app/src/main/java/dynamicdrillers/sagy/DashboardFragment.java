@@ -34,12 +34,12 @@ import java.util.TimerTask;
 public class DashboardFragment extends Fragment {
     CustomSwipeAdapter customSwipeAdapter;
     ViewPager viewPager;
-    RecyclerView rv=null;
+    RecyclerView rv=null,mp=null;
     LinearLayout sliderpanel;
     private int dotscount;
     private ImageView[] dots;
-    private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase,mpdatabase;
+    private FirebaseAuth mAuth,mpAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     public DashboardFragment() {
         // Required empty public constructor
@@ -129,9 +129,16 @@ public class DashboardFragment extends Fragment {
 
         //new recycler view
 
+        mp = (RecyclerView)view.findViewById(R.id.mp_recycler_view);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        mp.setLayoutManager(llm);
+
+        mpdatabase = FirebaseDatabase.getInstance().getReference().child("mp");
+
 
         return view;
     }
+
 
     @Override
     public void onStart() {
@@ -169,6 +176,30 @@ public class DashboardFragment extends Fragment {
                 };
         rv.setAdapter(firebaseRecyclerAdapter);
         firebaseRecyclerAdapter.startListening();
+
+        //new Firebaserecycleradapter
+        Query mpquery = mpdatabase;
+
+        FirebaseRecyclerOptions<Modelmp> mpoptions = new FirebaseRecyclerOptions.Builder<Modelmp>()
+                .setQuery(mpquery,Modelmp.class)
+                .build();
+        FirebaseRecyclerAdapter<Modelmp,ModelmpViewHolder> mpfirebaserecycleradapter = new FirebaseRecyclerAdapter<Modelmp, ModelmpViewHolder>(mpoptions) {
+            @Override
+            protected void onBindViewHolder(@NonNull ModelmpViewHolder holder, int position, @NonNull Modelmp model) {
+                holder.setName(model.getName());
+
+            }
+
+            @Override
+            public ModelmpViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                View view =  LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.mp_item, parent, false);
+                return  new ModelmpViewHolder(view);
+            }
+        };
+        mp.setAdapter(mpfirebaserecycleradapter);
+        firebaseRecyclerAdapter.startListening();
+
     }
     public  static class ModelVillageViewHolder extends RecyclerView.ViewHolder{
         View mView;
@@ -199,4 +230,21 @@ public class DashboardFragment extends Fragment {
 
         }
     }
+
+    //new viewholder class
+    public static class ModelmpViewHolder extends RecyclerView.ViewHolder{
+        View mpView;
+
+        public ModelmpViewHolder(View itemview) {
+            super(itemview);
+            this.mpView = itemview;
+
+        }
+
+        public void setName(String name) {
+            TextView mmp_name = mpView.findViewById(R.id.mp_name);
+            mmp_name.setText(name);
+        }
+    }
+
 }
