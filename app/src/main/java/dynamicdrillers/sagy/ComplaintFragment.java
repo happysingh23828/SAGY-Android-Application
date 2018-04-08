@@ -3,6 +3,7 @@ package dynamicdrillers.sagy;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatEditText;
 import android.view.LayoutInflater;
@@ -57,6 +58,7 @@ public class ComplaintFragment extends Fragment {
                 mDatabase.child("phone").setValue(phone);
                 mDatabase.child("complaint").setValue(complaint);
                 Toast.makeText(getContext(),"your Complaint is sended successfully",Toast.LENGTH_LONG).show();
+                Snackbar.make(view,"your Complaint is sended successfully",Snackbar.LENGTH_LONG).show();
 
             }
         });

@@ -1,6 +1,7 @@
 package dynamicdrillers.sagy;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -189,6 +191,13 @@ public class DashboardFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull ModelmpViewHolder holder, int position, @NonNull Modelmp model) {
                 holder.setName(model.getName());
+                holder.setImage(getContext(),model.getImage());
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getContext(),MemberProfileActivity.class));
+                    }
+                });
 
             }
 
@@ -247,6 +256,11 @@ public class DashboardFragment extends Fragment {
             TextView mmp_name = mpView.findViewById(R.id.mp_name);
             mmp_name.setText(name);
         }
+        public void setImage(Context ctx, String image){
+            ImageView mimageview = mpView.findViewById(R.id.mp_profile);
+            Picasso.with(ctx).load(image).into(mimageview);
+        }
+
     }
 
 }

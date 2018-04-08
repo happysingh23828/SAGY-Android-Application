@@ -11,14 +11,14 @@
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:elevation="60dp"
-        app:cardCornerRadius="5dp"
-        android:background="#000">
+        android:elevation="20dp"
+        app:cardCornerRadius="5dp">
 
         <ImageView
+            android:id="@+id/recent_profile"
             android:layout_width="70dp"
             android:layout_height="100dp"
-            android:background="@drawable/dhanapalan"/>
+            />
         <LinearLayout
             android:layout_marginLeft="80dp"
             android:layout_marginTop="5dp"

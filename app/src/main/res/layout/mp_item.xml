@@ -10,7 +10,7 @@
         android:layout_height="200dp"
         android:elevation="55dp"
         android:layout_marginLeft="10dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="5dp">
 
         <LinearLayout
 
@@ -23,7 +23,7 @@
                 android:layout_width="140dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/dhanapalan"/>
+                />
 
             <TextView
                 android:id="@+id/mp_name"
