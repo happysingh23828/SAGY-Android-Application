@@ -21,7 +21,7 @@
             android:layout_gravity="center_horizontal"
             android:text="Video Title Here.."
             android:background="#A020F0"/>
-        <VideoView
+        <com.google.android.youtube.player.YouTubePlayerView
             android:id="@+id/youtube"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

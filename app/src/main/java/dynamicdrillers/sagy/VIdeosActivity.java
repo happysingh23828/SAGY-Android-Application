@@ -10,13 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.*;
+import com.google.android.youtube.player.YouTubePlayerView;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-public class VIdeosActivity extends AppCompatActivity {
+public class VIdeosActivity extends YouTubeBaseActivity{
     RecyclerView videorv = null;
     DatabaseReference mDatabase;
     @Override
@@ -43,6 +47,7 @@ public class VIdeosActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ModelVideosViewHolder holder, int position, @NonNull ModelVideos model) {
                     holder.setTitle(model.getTitle());
+                    holder.setYoutubeid(model.getYoutubeid());
             }
 
             @Override
@@ -70,9 +75,28 @@ public class VIdeosActivity extends AppCompatActivity {
             mbutton.setText(title);
         }
 
-        public void setYoutubeid(String youtubeid) {
+        public void setYoutubeid(final String youtubeid) {
+
+        YouTubePlayerView youTubePlayerView = mView.findViewById(R.id.youtube);
+
+        youTubePlayerView.initialize(YouTubeConfig.API_KEY, new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+
+                youTubePlayer.loadVideo(youtubeid);
+                youTubePlayer.pause();
+
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+            }
+        });
 
 
         }
     }
+
+
 }
