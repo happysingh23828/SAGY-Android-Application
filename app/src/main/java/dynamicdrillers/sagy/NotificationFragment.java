@@ -63,12 +63,15 @@ public class NotificationFragment extends Fragment {
         FirebaseRecyclerAdapter<ModelNotification,NotificationViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<ModelNotification, NotificationViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull NotificationViewHolder holder, final int position, @NonNull ModelNotification model) {
+                    protected void onBindViewHolder(@NonNull final NotificationViewHolder holder, final int position, @NonNull ModelNotification model) {
+
                         holder.setTitle(model.getTitle());
                         holder.setDescription(model.getDescription());
                         holder.itemView.findViewById(R.id.close).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+
+
 
                             }
                         });

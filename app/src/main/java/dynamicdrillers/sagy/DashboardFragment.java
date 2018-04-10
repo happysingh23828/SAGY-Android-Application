@@ -21,9 +21,12 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -154,17 +157,34 @@ public class DashboardFragment extends Fragment {
         FirebaseRecyclerAdapter<ModelVillage,ModelVillageViewHolder>firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<ModelVillage, ModelVillageViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull ModelVillageViewHolder holder, int position, @NonNull ModelVillage model) {
+                    protected void onBindViewHolder(@NonNull final ModelVillageViewHolder holder, int position, @NonNull ModelVillage model) {
                             holder.setVillage(model.getVillage());
-                            holder.setThasil("Block :"+model.getThasil());
-                            holder.setDistrict("District :"+model.getDistrict());
-                            holder.setState(model.getState());
 
+                            FirebaseDatabase.getInstance().getReference().child("mp").child(model.getAdopted_by()).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    holder.setConstituency("Constituency : "+dataSnapshot.child("constituency").getValue().toString());
+                                    holder.setState(dataSnapshot.child("state").getValue(String.class));
+
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+                            final String name = model.getVillage().toString();
+                            final  String adoptedby=model.getAdopted_by().toString();
                             final String villageid = getRef(position).getKey().toString();
                             holder.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    startActivity(new Intent(getContext(),OneVillageWorkActivity.class));
+                                    Intent intent = new Intent(getContext(),VillageInforamtionActivity.class);
+                                    intent.putExtra("village",name);
+                                    intent.putExtra("mp_id",adoptedby);
+                                    intent.putExtra("village_id",villageid);
+                                    startActivity(intent);
                                     Toast.makeText(getContext(), villageid, Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -189,13 +209,25 @@ public class DashboardFragment extends Fragment {
                 .build();
         FirebaseRecyclerAdapter<Modelmp,ModelmpViewHolder> mpfirebaserecycleradapter = new FirebaseRecyclerAdapter<Modelmp, ModelmpViewHolder>(mpoptions) {
             @Override
-            protected void onBindViewHolder(@NonNull ModelmpViewHolder holder, int position, @NonNull Modelmp model) {
+            protected void onBindViewHolder(@NonNull ModelmpViewHolder holder, final int position, @NonNull final Modelmp model) {
                 holder.setName(model.getName());
                 holder.setImage(getContext(),model.getImage());
+                final String name = model.getName().toString();
+                final String state = model.getState().toString();
+                final String dob = model.getDob().toString();
+                final String village = model.getVillageadopted().toString();
+                final String residence = model.getAddress().toString();
+                final String consituency = model.getConstituency().toString();
+                final String image = model.getImage().toString();
+                final String party = model.getParty().toString();
+                final String village_adopt = model.getVillageadopted().toString();
+
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(getContext(),MemberProfileActivity.class));
+                        Intent intent = new Intent(getContext(),MemberProfileActivity.class);
+                        intent.putExtra("mpid",getRef(position).getKey().toString());
+                        startActivity(intent);
                     }
                 });
 
@@ -224,22 +256,16 @@ public class DashboardFragment extends Fragment {
             mvillage.setText(village);
 
         }
-        public void setThasil(String thasil) {
-            TextView mthasil = mView.findViewById(R.id.block_name);
-            mthasil.setText(thasil);
 
+        public void setConstituency(String constituency){
+            TextView textView = mView.findViewById(R.id.constituency_name);
+            textView.setText(constituency);
+        }
+        public void setState(String state){
+            TextView textView = mView.findViewById(R.id.state_name);
+            textView.setText(state);
         }
 
-
-        public void setState(String state) {
-            TextView mstate = mView.findViewById(R.id.state_name);
-            mstate.setText(state);
-        }
-        public void setDistrict(String district) {
-            TextView mdistrict = mView.findViewById(R.id.district_name);
-            mdistrict.setText(district);
-
-        }
     }
 
     //new viewholder class
@@ -260,6 +286,7 @@ public class DashboardFragment extends Fragment {
             ImageView mimageview = mpView.findViewById(R.id.mp_profile);
             Picasso.with(ctx).load(image).into(mimageview);
         }
+
 
     }
 

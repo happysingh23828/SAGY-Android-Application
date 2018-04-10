@@ -256,7 +256,6 @@
                     android:fontFamily="sans-serif-smallcaps"
                     android:textStyle="bold"
                     tools:ignore="RtlCompat" />
-
                 <TextView
                     android:id="@+id/mp_info_state"
                     android:layout_width="0dp"
@@ -296,8 +295,6 @@
                     android:textSize="16sp"
                     android:fontFamily="sans-serif-smallcaps"
                     android:textStyle="bold"/>
-
-
 
 
 
