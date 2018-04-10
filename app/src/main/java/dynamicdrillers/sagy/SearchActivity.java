@@ -30,7 +30,7 @@ import static java.security.AccessController.getContext;
 public class SearchActivity extends AppCompatActivity {
 
     private EditText searchEditText;
-    private Button searchBtn;
+    private Button searchBtn,FilterBtn;
     RecyclerView recyclerView;
     String searchText;
     LinearLayout village,tahshil,state,mp;
@@ -39,6 +39,14 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        FilterBtn = findViewById(R.id.filter_btn);
+        FilterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),SearchVillagesActivity.class));
+            }
+        });
 
         searchEditText = findViewById(R.id.search_edittext);
         searchBtn = findViewById(R.id.search_btn);
@@ -130,7 +138,7 @@ public class SearchActivity extends AppCompatActivity {
                     holder.setVillage(modal.getVillage());
 
                     FirebaseDatabase.getInstance().getReference().child("adopted_village")
-                    .orderByChild("village").equalTo("vidisha")
+                    .orderByChild("village").equalTo(modal.getVillage())
                             .addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -175,14 +183,14 @@ public class SearchActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         if(i==1){
                             FirebaseDatabase.getInstance().getReference().child("adopted_village")
-                                    .orderByChild("village").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    .orderByChild("village").equalTo(modal.getVillage()).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()) {
                                         Intent intent = new Intent(getBaseContext(),MemberProfileActivity.class);
-                                        intent.putExtra("id",dataSnapshot1.child("adopted_by").getValue().toString());
+                                        intent.putExtra("mpid",dataSnapshot1.child("adopted_by").getValue().toString());
                                         startActivity(intent);
-                                        finish();
+
                                     }
 
                                 }
@@ -195,9 +203,9 @@ public class SearchActivity extends AppCompatActivity {
                         }
                         else{
                             Intent intent = new Intent(getBaseContext(),MemberProfileActivity.class);
-                            intent.putExtra("id",getRef(position).getKey());
+                            intent.putExtra("mpid",getRef(position).getKey());
                             startActivity(intent);
-                            finish();
+
                         }
                     }
                 });

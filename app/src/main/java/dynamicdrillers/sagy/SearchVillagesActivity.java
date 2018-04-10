@@ -58,7 +58,7 @@ public class SearchVillagesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),MemberProfileActivity.class);
-                intent.putExtra("id",id);
+                intent.putExtra("mpid",id);
                 startActivity(intent);
             }
         });
