@@ -1,5 +1,6 @@
 package dynamicdrillers.sagy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -29,12 +30,12 @@ public class SearchVillagesActivity extends AppCompatActivity {
 
     private android.support.v7.widget.Toolbar toolbar;
     private Spinner stateSpinner,districtSpinner;
-    private String state[] = {"mp","up"};
-    private String selectedstate="mp";
-    private FirebaseListAdapter<VillageModal> adapter;
+    private String state[] = {"Madhya Pradesh","up"};
+    private String selectedstate="Madhya Pradesh";
+    private FirebaseListAdapter<ConstituencyModal> adapter;
     private String id;
     private TextView village,tahshil_name,mp_name;
-    private Button check_btn;
+    private Button more_info;
 
 
     @Override
@@ -49,22 +50,67 @@ public class SearchVillagesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         village = findViewById(R.id.village_name);
-        tahshil_name = findViewById(R.id.tahshil_name);
+        more_info = findViewById(R.id.more_info);
         mp_name = findViewById(R.id.mp_name);
-        check_btn = findViewById(R.id.check_btn);
-        check_btn.setOnClickListener(new View.OnClickListener() {
+
+
+        more_info.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MemberProfileActivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
 
-              FirebaseDatabase.getInstance()
-                        .getReference().child("Adobted_villages").child(id).addValueEventListener(new ValueEventListener() {
 
+        districtSpinner = findViewById(R.id.district_spinner);
+        districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+
+                TextView textView = (TextView) parent.findViewById(R.id.text_item);
+
+                FirebaseDatabase.getInstance()
+                        .getReference().child("mp").orderByChild("constituency").equalTo(textView.getText().toString())
+                        .addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                VillageModal modal = dataSnapshot.getValue(VillageModal.class);
-                                tahshil_name.setText(modal.getTahshil());
-                                mp_name.setText(modal.getMp());
-                                village.setText(modal.getVillage());
+                                for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()) {
+                                    id = dataSnapshot1.getRef().getKey().toString();
+                                    FirebaseDatabase.getInstance().getReference().child("mp")
+                                            .child(dataSnapshot1.getRef().getKey().toString())
+                                            .addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot2) {
+
+                                                    mp_name.setText(dataSnapshot2.child("name").getValue().toString());
+                                                    FirebaseDatabase.getInstance()
+                                                            .getReference().child("adopted_village")
+                                                            .child(dataSnapshot2.child("villageadopted").getValue().toString())
+                                                            .addValueEventListener(new ValueEventListener() {
+                                                                @Override
+                                                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                                                    village.setText(dataSnapshot.child("village").getValue().toString());
+                                                                }
+
+                                                                @Override
+                                                                public void onCancelled(DatabaseError databaseError) {
+
+                                                                }
+                                                            });
+
+                                                }
+
+                                                @Override
+                                                public void onCancelled(DatabaseError databaseError) {
+
+                                                }
+                                            });
+
+
+
+                                }
                             }
 
                             @Override
@@ -73,23 +119,13 @@ public class SearchVillagesActivity extends AppCompatActivity {
                             }
                         });
 
-                ;
-            }
-        });
 
-        districtSpinner = findViewById(R.id.district_spinner);
-        districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-
-                DatabaseReference itemRef = adapter.getRef(i);
-                id = itemRef.getKey().toString();
+                id = textView.getText().toString();
 
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
@@ -110,18 +146,18 @@ public class SearchVillagesActivity extends AppCompatActivity {
 
 
                 Query query = FirebaseDatabase.getInstance()
-                        .getReference().child("Adobted_villages").orderByChild("state").equalTo(selectedstate);
+                        .getReference().child("mp").orderByChild("state").equalTo(selectedstate);
 
-                FirebaseListOptions<VillageModal> options = new FirebaseListOptions.Builder<VillageModal>()
+                FirebaseListOptions<ConstituencyModal> options = new FirebaseListOptions.Builder<ConstituencyModal>()
                         .setLayout(R.layout.simple)//Note: The guide doesn't mention this method, without it an exception is thrown that the layout has to be set.
-                        .setQuery(query, VillageModal.class)
+                        .setQuery(query, ConstituencyModal.class)
                         .build();
 
-                adapter = new FirebaseListAdapter<VillageModal>(options) {
+                adapter = new FirebaseListAdapter<ConstituencyModal>(options) {
                     @Override
-                    protected void populateView(View v,VillageModal model, int position) {
+                    protected void populateView(View v,ConstituencyModal model, int position) {
                         TextView textView =  (TextView) v.findViewById(R.id.text_item);
-                        textView.setText(model.getVillage());
+                        textView.setText(model.getConstituency().toString());
                     }
                 };
 

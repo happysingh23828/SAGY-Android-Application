@@ -7,16 +7,16 @@ package dynamicdrillers.sagy;
 public class ModalSearchItem {
 
     String image;
-    String mp,village,tahshil;
+    String name,village,constituency;
 
     public ModalSearchItem() {
     }
 
-    public ModalSearchItem(String image, String mp, String village, String tahshil) {
+    public ModalSearchItem(String image, String name, String village, String constituency) {
         this.image = image;
-        this.mp = mp;
+        this.name = name;
         this.village = village;
-        this.tahshil = tahshil;
+        this.constituency = constituency;
     }
 
     public String getImage() {
@@ -28,11 +28,11 @@ public class ModalSearchItem {
     }
 
     public String getMp() {
-        return mp;
+        return name;
     }
 
-    public void setMp(String mp) {
-        this.mp = mp;
+    public void setMp(String name) {
+        this.name = name;
     }
 
     public String getVillage() {
@@ -43,11 +43,11 @@ public class ModalSearchItem {
         this.village = village;
     }
 
-    public String getTahshil() {
-        return tahshil;
+    public String getConstituency() {
+        return constituency;
     }
 
-    public void setTahshil(String tahshil) {
-        this.tahshil = tahshil;
+    public void setConstituency(String constituency) {
+        this.constituency = constituency;
     }
 }
