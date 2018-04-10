@@ -28,4 +28,11 @@
     <string name="sansad_adrash_gram">SANSAD ADRASH GRAM</string>
     <string name="yojana">YOJANA</string>
     <string name="sagy">(SAGY)</string>
+    <string-array name="language">
+        <item>English</item>
+        <item>Hindi</item>
+        <item>Punjabi</item>
+    </string-array>
+    <item name="visible" type="id"/>
+    <item name="masked" type="id"/>
 </resources>
