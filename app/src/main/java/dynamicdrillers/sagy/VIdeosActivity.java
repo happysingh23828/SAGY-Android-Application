@@ -1,5 +1,6 @@
 package dynamicdrillers.sagy;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.*;
@@ -19,6 +22,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 
 public class VIdeosActivity extends YouTubeBaseActivity{
     RecyclerView videorv = null;
@@ -45,9 +49,19 @@ public class VIdeosActivity extends YouTubeBaseActivity{
         FirebaseRecyclerAdapter<ModelVideos,ModelVideosViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<ModelVideos, ModelVideosViewHolder>
                 (options) {
             @Override
-            protected void onBindViewHolder(@NonNull ModelVideosViewHolder holder, int position, @NonNull ModelVideos model) {
+            protected void onBindViewHolder(@NonNull ModelVideosViewHolder holder, int position, @NonNull final ModelVideos model) {
                     holder.setTitle(model.getTitle());
                     holder.setYoutubeid(model.getYoutubeid());
+                Toast.makeText(VIdeosActivity.this, model.getTitle(), Toast.LENGTH_SHORT).show();
+
+                 holder.mView.findViewById(R.id.img_youtube).setOnClickListener(new View.OnClickListener() {
+                     @Override
+                     public void onClick(View v) {
+                         Intent intent = new Intent(getApplication(),SingleVideoActivity.class);
+                         intent.putExtra("id",model.getYoutubeid());
+                         startActivity(intent);
+                     }
+                 });
             }
 
             @Override
@@ -62,7 +76,7 @@ public class VIdeosActivity extends YouTubeBaseActivity{
 
     }
 
-    public static class ModelVideosViewHolder extends RecyclerView.ViewHolder{
+    public  class ModelVideosViewHolder extends RecyclerView.ViewHolder{
 
         View mView;
         public ModelVideosViewHolder(View itemView) {
@@ -75,25 +89,14 @@ public class VIdeosActivity extends YouTubeBaseActivity{
             mbutton.setText(title);
         }
 
-        public void setYoutubeid(final String youtubeid) {
 
-        YouTubePlayerView youTubePlayerView = mView.findViewById(R.id.youtube);
 
-        youTubePlayerView.initialize(YouTubeConfig.API_KEY, new YouTubePlayer.OnInitializedListener() {
-            @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+        public void setYoutubeid(final String youtube) {
 
-                youTubePlayer.loadVideo(youtubeid);
-                youTubePlayer.pause();
+            Toast.makeText(VIdeosActivity.this, youtube, Toast.LENGTH_SHORT).show();
 
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
-            }
-        });
-
+        ImageView img = mView.findViewById(R.id.img_youtube);
+            Picasso.with(VIdeosActivity.this).load("https://i.ytimg.com/vi/"+youtube+"/maxresdefault.jpg").into(img);
 
         }
     }
