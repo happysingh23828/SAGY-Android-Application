@@ -46,7 +46,8 @@ public class RecentActivitiesFragment extends Fragment {
         rv = (RecyclerView) view.findViewById(R.id.recent_recycler);
 //        rv.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
         rv.setLayoutManager(linearLayoutManager);
 
 
@@ -73,7 +74,9 @@ public class RecentActivitiesFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(getContext(),OneRecentActivity.class));
+                        Intent  intent = new Intent(getContext(),OneRecentActivity.class);
+                        intent.putExtra("activity",activityid);
+                        startActivity(intent);
                         Toast.makeText(getContext(), activityid, Toast.LENGTH_SHORT).show();
                     }
                 });

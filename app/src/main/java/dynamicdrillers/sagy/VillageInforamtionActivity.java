@@ -116,7 +116,7 @@ public class VillageInforamtionActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        Intent intent = new Intent(getApplicationContext(),OneVillageWorkActivity.class);
+                        Intent intent = new Intent(VillageInforamtionActivity.this,OneVillageWorkActivity.class);
                         intent.putExtra("title",model.getTitle());
                         intent.putExtra("des",model.getDescription());
                         intent.putExtra("image",model.getImage());

@@ -62,7 +62,7 @@ public class VIdeosActivity extends YouTubeBaseActivity{
 
     }
 
-    public static class ModelVideosViewHolder extends RecyclerView.ViewHolder{
+    public  class ModelVideosViewHolder extends RecyclerView.ViewHolder{
 
         View mView;
         public ModelVideosViewHolder(View itemView) {

@@ -42,7 +42,8 @@ public class NotificationFragment extends Fragment {
         rv = (RecyclerView) view.findViewById(R.id.notification_recycler_view);
 //        rv.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
         rv.setLayoutManager(linearLayoutManager);
 
 
@@ -70,9 +71,7 @@ public class NotificationFragment extends Fragment {
                         holder.itemView.findViewById(R.id.close).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-
-
-
+                                
                             }
                         });
 

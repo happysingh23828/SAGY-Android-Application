@@ -70,6 +70,9 @@
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_margin="10dp"
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:lines="10"
         android:background="@drawable/complaint_box"
         android:hint="Complaint here..."/>
     <Button
@@ -80,7 +83,9 @@
         android:text="send"
         android:textStyle="bold"
         android:textColor="#fff"
-        android:background="@drawable/complaint_button"/>
+        android:layout_marginRight="20dp"
+        android:background="@drawable/complaint_button"
+        android:layout_marginBottom="10dp"/>
     </LinearLayout>
 
 </ScrollView>

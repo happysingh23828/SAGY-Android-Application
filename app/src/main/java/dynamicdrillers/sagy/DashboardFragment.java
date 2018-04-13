@@ -126,7 +126,8 @@ public class DashboardFragment extends Fragment {
         rv = (RecyclerView) view.findViewById(R.id.rv_recycler_view);
 //        rv.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
         rv.setLayoutManager(linearLayoutManager);
 
 
@@ -137,6 +138,8 @@ public class DashboardFragment extends Fragment {
 
         mp = (RecyclerView)view.findViewById(R.id.mp_recycler_view);
         LinearLayoutManager llm = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        llm.setReverseLayout(true);
+        llm.setStackFromEnd(true);
         mp.setLayoutManager(llm);
 
         mpdatabase = FirebaseDatabase.getInstance().getReference().child("mp");
@@ -212,15 +215,7 @@ public class DashboardFragment extends Fragment {
             protected void onBindViewHolder(@NonNull ModelmpViewHolder holder, final int position, @NonNull final Modelmp model) {
                 holder.setName(model.getName());
                 holder.setImage(getContext(),model.getImage());
-                final String name = model.getName().toString();
-                final String state = model.getState().toString();
-                final String dob = model.getDob().toString();
-                final String village = model.getVillageadopted().toString();
-                final String residence = model.getAddress().toString();
-                final String consituency = model.getConstituency().toString();
-                final String image = model.getImage().toString();
-                final String party = model.getParty().toString();
-                final String village_adopt = model.getVillageadopted().toString();
+
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override

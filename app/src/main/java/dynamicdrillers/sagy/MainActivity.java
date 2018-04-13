@@ -7,6 +7,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -123,7 +124,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.visit_website:
-                        Toast.makeText(getBaseContext(), "Visite Website Clicked", Toast.LENGTH_SHORT).show();
+                        Uri uri = Uri.parse("http://saanjhi.gov.in/");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        Toast.makeText(getBaseContext(), "Visit Website Clicked", Toast.LENGTH_SHORT).show();
                         break;
 
 
