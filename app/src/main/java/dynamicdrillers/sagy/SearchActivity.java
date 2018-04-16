@@ -34,12 +34,17 @@ public class SearchActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     String searchText;
     LinearLayout village,tahshil,state,mp;
+    ImageView back_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+
+        back_icon = findViewById(R.id.open_nav_icon);
+
+        back_icon.setVisibility(View.GONE);
         FilterBtn = findViewById(R.id.filter_btn);
         FilterBtn.setOnClickListener(new View.OnClickListener() {
             @Override

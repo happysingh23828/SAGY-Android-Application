@@ -59,6 +59,10 @@ public class ComplaintFragment extends Fragment {
                 mDatabase.child("complaint").setValue(complaint);
                 Toast.makeText(getContext(),"your Complaint is sended successfully",Toast.LENGTH_LONG).show();
                 Snackbar.make(view,"your Complaint is sended successfully",Snackbar.LENGTH_LONG).show();
+                editTextcomplaint.setText("");
+                editTextemail.setText("");
+                editTextname.setText("");
+                editTextpass.setText("");
 
             }
         });
