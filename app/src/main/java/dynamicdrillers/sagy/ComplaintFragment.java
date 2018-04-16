@@ -15,6 +15,11 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -22,7 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class ComplaintFragment extends Fragment {
     EditText editTextcomplaint;
-    AppCompatEditText editTextname,editTextemail,editTextpass;
+    AppCompatEditText editTextname,editTextname1,editTextemail,editTextpass;
     DatabaseReference mDatabase;
 
 
@@ -43,6 +48,8 @@ public class ComplaintFragment extends Fragment {
         Button button = view.findViewById(R.id.send);
         editTextemail = view.findViewById(R.id.edittextemail);
         editTextname  = view.findViewById(R.id.edittextname);
+        editTextname1  = view.findViewById(R.id.edittextname1);
+
         editTextpass  = view.findViewById(R.id.edittextpass);
         editTextcomplaint = view.findViewById(R.id.edittextcomplaint);
         mDatabase     = FirebaseDatabase.getInstance().getReference().child("complaints").push();
@@ -53,16 +60,26 @@ public class ComplaintFragment extends Fragment {
                 String email = editTextemail.getText().toString().trim();
                 String phone = editTextpass.getText().toString().trim();
                 String complaint = editTextcomplaint.getText().toString().trim();
+
                 mDatabase.child("name").setValue(name);
                 mDatabase.child("email").setValue(email);
                 mDatabase.child("phone").setValue(phone);
                 mDatabase.child("complaint").setValue(complaint);
+                mDatabase.child("subject").setValue(editTextname1.getText().toString());
+
+                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                Date date = new Date();
+
+
+
+                mDatabase.child("time").setValue(dateFormat.format(date));
                 Toast.makeText(getContext(),"your Complaint is sended successfully",Toast.LENGTH_LONG).show();
                 Snackbar.make(view,"your Complaint is sended successfully",Snackbar.LENGTH_LONG).show();
                 editTextcomplaint.setText("");
                 editTextemail.setText("");
                 editTextname.setText("");
                 editTextpass.setText("");
+                editTextname1.setText("");
 
             }
         });

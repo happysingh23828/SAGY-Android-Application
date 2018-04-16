@@ -30,8 +30,8 @@ public class SearchVillagesActivity extends AppCompatActivity {
 
     private android.support.v7.widget.Toolbar toolbar;
     private Spinner stateSpinner,districtSpinner;
-    private String state[] = {"Madhya Pradesh","up"};
-    private String selectedstate="Madhya Pradesh";
+    private String state[] = {"Bihar","Jharkhand"};
+    private String selectedstate="Jharkhand";
     private FirebaseListAdapter<ConstituencyModal> adapter;
     private String id;
     private TextView village,tahshil_name,mp_name;
