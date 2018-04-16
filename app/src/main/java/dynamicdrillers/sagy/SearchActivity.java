@@ -1,5 +1,6 @@
 package dynamicdrillers.sagy;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,8 +18,11 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import static java.security.AccessController.getContext;
@@ -26,7 +30,7 @@ import static java.security.AccessController.getContext;
 public class SearchActivity extends AppCompatActivity {
 
     private EditText searchEditText;
-    private Button searchBtn;
+    private Button searchBtn,FilterBtn;
     RecyclerView recyclerView;
     String searchText;
     LinearLayout village,tahshil,state,mp;
@@ -36,13 +40,21 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        FilterBtn = findViewById(R.id.filter_btn);
+        FilterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),SearchVillagesActivity.class));
+            }
+        });
+
         searchEditText = findViewById(R.id.search_edittext);
         searchBtn = findViewById(R.id.search_btn);
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 searchText = searchEditText.getText().toString();
-                search(searchText,"village");
+                search(searchText,"constituency",0);
             }
         });
 
@@ -51,7 +63,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 searchText = searchEditText.getText().toString();
-                search(searchText,"village");
+                search(searchText,"village",1);
             }
         });
 
@@ -60,7 +72,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 searchText = searchEditText.getText().toString();
-                search(searchText,"state");
+                search(searchText,"state",0);
             }
         });
 
@@ -70,7 +82,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 searchText = searchEditText.getText().toString();
-                search(searchText,"tahshil");
+                search(searchText,"constituency",0);
             }
         });
 
@@ -79,7 +91,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 searchText = searchEditText.getText().toString();
-                search(searchText,"mp");
+                search(searchText,"name",0);
             }
         });
 
@@ -91,12 +103,21 @@ public class SearchActivity extends AppCompatActivity {
     }
 
 
-    public void search(String text,String order) {
+    public void search(String text,String order,int flag) {
+
+        final int i = flag;
+        Query query;
+        if(flag==0)
+            query = FirebaseDatabase.getInstance()
+                .getReference().child("mp").orderByChild(order)
+                .startAt(text).endAt(text+"\uf8ff");
+
+        else
+            query = FirebaseDatabase.getInstance()
+                    .getReference().child("adopted_village").orderByChild(order)
+                    .startAt(text).endAt(text+"\uf8ff");
 
 
-        Query query = FirebaseDatabase.getInstance()
-                .getReference()
-                .child("Adobted_villages").orderByChild(order).startAt(text).endAt(text+"\uf8ff");
 
 
         FirebaseRecyclerOptions<ModalSearchItem> options =
@@ -107,23 +128,91 @@ public class SearchActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<ModalSearchItem,SearchViewHolder> adapter = new FirebaseRecyclerAdapter<ModalSearchItem,SearchViewHolder>(options) {
 
             @Override
-            protected void onBindViewHolder(@NonNull final SearchViewHolder holder, int position, @NonNull final ModalSearchItem modal) {
+            protected void onBindViewHolder(@NonNull final SearchViewHolder holder, final int position, @NonNull final ModalSearchItem modal) {
                 final int pos = position;
 
-                holder.setVillage(modal.getVillage());
-                holder.setTahshil(modal.getTahshil());
-                holder.setImage(modal.getImage());
-                holder.setMp(modal.getMp());
 
-                final String id  = getRef(position).getKey();
+
+                if(i==1){
+
+                    holder.setVillage(modal.getVillage());
+
+                    FirebaseDatabase.getInstance().getReference().child("adopted_village")
+                    .orderByChild("village").equalTo(modal.getVillage())
+                            .addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                    for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()) {
+                                        FirebaseDatabase.getInstance().getReference()
+                                                .child("mp").child(dataSnapshot1.child("adopted_by").getValue().toString())
+                                                .addValueEventListener(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                                        holder.setConstituency(dataSnapshot.child("constituency").getValue().toString());
+                                                        holder.setImage(dataSnapshot.child("image").getValue().toString());
+                                                        holder.setMp(dataSnapshot.child("name").getValue().toString());
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(DatabaseError databaseError) {
+
+                                                    }
+                                                });
+
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
+
+                }
+                else {
+                    holder.setConstituency(modal.getConstituency());
+                    holder.setImage(modal.getImage());
+                    holder.setMp(modal.getMp());
+                }
 
                 holder.getView().findViewById(R.id.mp_btn).setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        Toast.makeText(SearchActivity.this,id,Toast.LENGTH_LONG).show();
+                    public void onClick(View v) {
+                        if(i==1){
+                            FirebaseDatabase.getInstance().getReference().child("adopted_village")
+                                    .orderByChild("village").equalTo(modal.getVillage()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()) {
+                                        Intent intent = new Intent(getBaseContext(),MemberProfileActivity.class);
+                                        intent.putExtra("mpid",dataSnapshot1.child("adopted_by").getValue().toString());
+                                        startActivity(intent);
 
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+                        }
+                        else{
+                            Intent intent = new Intent(getBaseContext(),MemberProfileActivity.class);
+                            intent.putExtra("mpid",getRef(position).getKey());
+                            startActivity(intent);
+
+                        }
                     }
                 });
+
+                final String id  = getRef(position).getKey();
+
+
 
 
 
@@ -164,11 +253,15 @@ public class SearchActivity extends AppCompatActivity {
         }
 
         public void setVillage(String village){
-            TextView textView = mView.findViewById(R.id.village_text);
-            textView.setText(village);
+
+                TextView textView = mView.findViewById(R.id.village_text);
+                textView.setText(village);
+                textView.setVisibility(View.VISIBLE);
+
+
         }
-        public void setTahshil(String tahshil){
-            TextView textView = mView.findViewById(R.id.tahshil_text);
+        public void setConstituency(String tahshil){
+            TextView textView = mView.findViewById(R.id.constituency_text);
             textView.setText(tahshil);
         }
         public void setMp(String mp){

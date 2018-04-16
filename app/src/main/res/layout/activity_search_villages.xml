@@ -14,9 +14,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="60dp"
-        android:layout_weight="6"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <TextView
@@ -64,24 +63,13 @@
 
             android:background="@drawable/spinner_background"/>
 
-        <Button
-            android:id="@+id/check_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/title2"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:text="@string/check_adopted_villages"
-            android:textColor="@color/common_google_signin_btn_text_dark_pressed"
-            android:textSize="18dp" />
+
     </LinearLayout>
 
     <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
@@ -97,90 +85,83 @@
                 android:layout_height="match_parent"
                 >
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2.5">
+                    android:layout_height="wrap_content"
+                    >
 
                     <TextView
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Village Name"
+                        android:textAlignment="center"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="22dp" />
+
+                    <TextView
+                        android:gravity="center"
                         android:id="@+id/village_name"
-                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:text="@string/village_name"
                         android:textAlignment="center"
                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
                         android:textSize="22dp" />
 
+
+
                 </LinearLayout>
+
                 <LinearLayout
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2.5">
+                    android:layout_height="wrap_content"
+                    >
 
                     <TextView
-                        android:id="@+id/tahshil"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:layout_weight="1"
-                        android:text="@string/tahshil_block"
-                        android:textAlignment="center"
-                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                        android:textSize="22dp" />
-
-                    <TextView
-                        android:id="@+id/tahshil_name"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="@string/thashil_name"
-                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                        android:textSize="22dp" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2.5">
-
-                    <TextView
-                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Adopted By"
                         android:textAlignment="center"
                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
                         android:textSize="22dp" />
 
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2.5">
-
                     <TextView
-                        android:id="@+id/mp_name"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:id="@+id/mp_name"
+                        android:layout_height="match_parent"
                         android:text="@string/mp_name"
                         android:textAlignment="center"
                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
                         android:textSize="22dp" />
 
+                </LinearLayout>
+
+
                     <Button
-                        android:layout_width="0dp"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        android:layout_marginRight="20dp"
-                       android:layout_marginLeft="20dp"
+                        android:id="@+id/more_info"
+                        android:layout_marginBottom="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingRight="20dp"
+                        android:paddingLeft="20dp"
                         android:background="@drawable/title2"
                         android:text="@string/more_info"
                         android:textColor="@color/common_google_signin_btn_text_dark_default"
                         android:textSize="18sp" />
 
-                </LinearLayout>
+
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

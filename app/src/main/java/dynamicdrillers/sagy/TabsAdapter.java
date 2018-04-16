@@ -18,11 +18,11 @@ public class TabsAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Fragment fragment;
         switch (position) {
-            case 2:
+            case 1:
                 return fragment = new ComplaintFragment();
             case 0:
                 return fragment = new DashboardFragment();
-            case 1:
+            case 2:
                 return fragment = new NotificationFragment();
             case 3:
                 return fragment = new RecentActivitiesFragment();

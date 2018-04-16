@@ -1,9 +1,13 @@
 package dynamicdrillers.sagy;
 
+import android.app.ActionBar;
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -12,17 +16,22 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -32,10 +41,13 @@ public class MainActivity extends AppCompatActivity{
     private NavigationView navigationView;
     private TextView searchtexview;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         searchtexview = findViewById(R.id.search_textview);
         searchtexview.setOnClickListener(new View.OnClickListener() {
@@ -65,23 +77,31 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-
+                    Fragment fragment =null;
                 switch (item.getItemId()) {
                     case R.id.Dashboard_item:
+                        viewPager.setCurrentItem(0);
+                        drawerLayout.closeDrawer(Gravity.START);
                         Toast.makeText(getBaseContext(), "DashBoard Clicked", Toast.LENGTH_SHORT).show();
 
 
                         break;
 
                     case R.id.Notifications_item:
+                        viewPager.setCurrentItem(2);
+                        drawerLayout.closeDrawer(Gravity.START);
                         Toast.makeText(getBaseContext(), "Notification Clicked", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.Complaints_item:
-                        Toast.makeText(getBaseContext(), "Complaint Clicked", Toast.LENGTH_SHORT).show();
+                        viewPager.setCurrentItem(1);
+                        drawerLayout.closeDrawer(Gravity.START);
                         break;
 
                     case R.id.Recent_ACtivity_item:
+
+                        viewPager.setCurrentItem(3);
+                        drawerLayout.closeDrawer(Gravity.START);
                         Toast.makeText(getBaseContext(), "Recent Activity  Clicked", Toast.LENGTH_SHORT).show();
                         break;
 
@@ -97,14 +117,17 @@ public class MainActivity extends AppCompatActivity{
                         startActivity(aboutapp);
                         break;
 
-                    case R.id.about_sagy:
-                        drawerLayout.closeDrawer(Gravity.START);
-                        Intent aboutsagy = new Intent(MainActivity.this,AboutSAGYActivity.class);
-                        startActivity(aboutsagy);
-                        break;
+//                    case R.id.about_sagy:
+//                        drawerLayout.closeDrawer(Gravity.START);
+//                        Intent aboutsagy = new Intent(MainActivity.this,AboutSAGYActivity.class);
+//                        startActivity(aboutsagy);
+//                        break;
 
                     case R.id.visit_website:
-                        Toast.makeText(getBaseContext(), "Visite Website Clicked", Toast.LENGTH_SHORT).show();
+                        Uri uri = Uri.parse("http://saanjhi.gov.in/");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        Toast.makeText(getBaseContext(), "Visit Website Clicked", Toast.LENGTH_SHORT).show();
                         break;
 
 
@@ -122,6 +145,7 @@ public class MainActivity extends AppCompatActivity{
 
         tabLayout = findViewById(R.id.main_tablayout);
         tabLayout.setupWithViewPager(viewPager);
+
 
         button = findViewById(R.id.filter_btn);
         button.setOnClickListener(new View.OnClickListener() {

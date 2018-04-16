@@ -51,9 +51,9 @@
             android:title="About App"
             android:icon="@drawable/ic_info_black_24dp"></item>
 
-        <item android:id="@+id/about_sagy"
-            android:title="About SAGY"
-            android:icon="@drawable/ic_new_releases_black_24dp"></item>
+        <!--<item android:id="@+id/about_sagy"-->
+            <!--android:title="About SAGY"-->
+            <!--android:icon="@drawable/ic_new_releases_black_24dp"></item>-->
 
         <item android:id="@+id/visit_website"
             android:title="Visit Website"
