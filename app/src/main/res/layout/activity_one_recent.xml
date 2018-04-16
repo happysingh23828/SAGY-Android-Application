@@ -36,7 +36,6 @@
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:padding="5dp"
-        android:textAlignment="center"
         android:textStyle="normal"
         android:textSize="15sp"
         android:lines="20"

@@ -152,11 +152,11 @@ public class VillageInforamtionActivity extends AppCompatActivity {
         }
 
         public void setDescription(String description) {
-            TextView textView = mView.findViewById(R.id.village_info_work_title);
+            TextView textView = mView.findViewById(R.id.village_info_work_desc);
             textView.setText(description);
         }
         public void setTitle(String title) {
-            TextView textView = mView.findViewById(R.id.village_info_work_desc);
+            TextView textView = mView.findViewById(R.id.village_info_work_title);
             textView.setText(title);
         }
 

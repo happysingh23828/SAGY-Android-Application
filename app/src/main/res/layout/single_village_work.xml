@@ -25,6 +25,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/cantora_one"
             android:padding="10dp"
+            android:lines="2"
 
             tools:ignore="RtlCompat" />
 
@@ -47,7 +48,8 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/cantora_one"
                 android:padding="10dp"
-                tools:ignore="RtlCompat" />
+                tools:ignore="RtlCompat"
+                android:lines="3"/>
 
             <Button
 
