@@ -114,6 +114,7 @@ public class SearchActivity extends AppCompatActivity {
                 holder.setTahshil(modal.getTahshil());
                 holder.setImage(modal.getImage());
                 holder.setMp(modal.getMp());
+
                 final String id  = getRef(position).getKey();
 
                 holder.getView().findViewById(R.id.mp_btn).setOnClickListener(new View.OnClickListener() {

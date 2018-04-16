@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:background="@android:color/white"
+
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -25,7 +27,8 @@
             android:layout_marginRight="30dp"
             android:text="Choose State"
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
-            android:textSize="25sp" />
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
         <Spinner
             android:id="@+id/state_spinner"
@@ -33,7 +36,10 @@
             android:layout_height="40dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/spinner_background"
+            android:tooltipText="@string/DummyText"
+            />
 
         <TextView
             android:id="@+id/district_text"
@@ -53,7 +59,10 @@
             android:layout_height="40dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+
+            android:background="@drawable/spinner_background"/>
 
         <Button
             android:id="@+id/check_btn"

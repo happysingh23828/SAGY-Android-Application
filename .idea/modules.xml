@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SAGY.iml" filepath="$PROJECT_DIR$/SAGY.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SAGY-Android-Application.iml" filepath="$PROJECT_DIR$/SAGY-Android-Application.iml" />
       <module fileurl="file://G:\Android Apps\SAGY\SAGY-Android-Application.iml" filepath="G:\Android Apps\SAGY\SAGY-Android-Application.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
