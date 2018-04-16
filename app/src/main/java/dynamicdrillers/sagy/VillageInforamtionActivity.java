@@ -61,7 +61,7 @@ public class VillageInforamtionActivity extends AppCompatActivity {
         String mp_id = intent.getStringExtra("mp_id");
         Village_id = getIntent().getStringExtra("village_id");
 
-        Toast.makeText(this, Village_id, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, Village_id, Toast.LENGTH_SHORT).show();
 
 
         recyclerView = findViewById(R.id.village_info_work_list);

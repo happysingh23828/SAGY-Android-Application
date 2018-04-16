@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.Dashboard_item:
                         viewPager.setCurrentItem(0);
                         drawerLayout.closeDrawer(Gravity.START);
-                        Toast.makeText(getBaseContext(), "DashBoard Clicked", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "DashBoard Clicked", Toast.LENGTH_SHORT).show();
 
 
                         break;
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.Notifications_item:
                         viewPager.setCurrentItem(2);
                         drawerLayout.closeDrawer(Gravity.START);
-                        Toast.makeText(getBaseContext(), "Notification Clicked", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getBaseContext(), "Notification Clicked", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.Complaints_item:
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
                         viewPager.setCurrentItem(3);
                         drawerLayout.closeDrawer(Gravity.START);
-                        Toast.makeText(getBaseContext(), "Recent Activity  Clicked", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "Recent Activity  Clicked", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.Videos:
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                         Uri uri = Uri.parse("http://saanjhi.gov.in/");
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
-                        Toast.makeText(getBaseContext(), "Visit Website Clicked", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getBaseContext(), "Visit Website Clicked", Toast.LENGTH_SHORT).show();
                         break;
 
 

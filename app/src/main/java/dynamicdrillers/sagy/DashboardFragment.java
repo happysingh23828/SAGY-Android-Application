@@ -188,7 +188,7 @@ public class DashboardFragment extends Fragment {
                                     intent.putExtra("mp_id",adoptedby);
                                     intent.putExtra("village_id",villageid);
                                     startActivity(intent);
-                                    Toast.makeText(getContext(), villageid, Toast.LENGTH_SHORT).show();
+                                   // Toast.makeText(getContext(), villageid, Toast.LENGTH_SHORT).show();
                                 }
                             });
 

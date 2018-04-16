@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,7 +79,7 @@ public class RecentActivitiesFragment extends Fragment {
                         Intent  intent = new Intent(getContext(),OneRecentActivity.class);
                         intent.putExtra("activity",activityid);
                         startActivity(intent);
-                        Toast.makeText(getContext(), activityid, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getContext(), activityid, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -112,7 +114,7 @@ public class RecentActivitiesFragment extends Fragment {
             mdesc.setText(description);
         }
         public void setImage(Context ctx,String image){
-            ImageView mpImageview = mView.findViewById(R.id.recent_profile);
+            CircleImageView mpImageview = mView.findViewById(R.id.recent_profile);
             Picasso.with(ctx).load(image).into(mpImageview);
         }
 

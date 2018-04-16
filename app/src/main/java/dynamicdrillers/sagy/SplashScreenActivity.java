@@ -30,7 +30,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.animate);
         linearLayout.setVisibility(LinearLayout.VISIBLE);
         Animation animation   =    AnimationUtils.loadAnimation(this, R.anim.animation);
-        animation.setDuration(500);
+        animation.setDuration(5000);
         linearLayout.setAnimation(animation);
         linearLayout.animate();
         animation.start();

@@ -12,17 +12,18 @@
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="10"
+        android:weightSum="12"
         android:orientation="vertical">
+
         <ImageView
             android:layout_width="250dp"
             android:layout_height="0dp"
-            android:layout_weight="7"
-            android:background="@drawable/splash"/>
+            android:layout_weight="10"
+            android:background="@drawable/splash" />
         <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:text="@string/sansad_adrash_gram"
         android:textSize="20sp"
         android:gravity="center"
@@ -34,7 +35,7 @@
         <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:text="@string/yojana"
         android:textSize="23sp"
 
@@ -46,11 +47,10 @@
         <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:textStyle="bold"
         android:layout_margin="5dp"
         android:text="@string/sagy"
-        android:textSize="27sp"
         android:gravity="center"
         android:textColor="@android:color/white"/>
 

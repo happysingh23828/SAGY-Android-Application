@@ -52,7 +52,7 @@ public class VIdeosActivity extends YouTubeBaseActivity{
             protected void onBindViewHolder(@NonNull ModelVideosViewHolder holder, int position, @NonNull final ModelVideos model) {
                     holder.setTitle(model.getTitle());
                     holder.setYoutubeid(model.getYoutubeid());
-                Toast.makeText(VIdeosActivity.this, model.getTitle(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(VIdeosActivity.this, model.getTitle(), Toast.LENGTH_SHORT).show();
 
                  holder.mView.findViewById(R.id.img_youtube).setOnClickListener(new View.OnClickListener() {
                      @Override
@@ -93,7 +93,7 @@ public class VIdeosActivity extends YouTubeBaseActivity{
 
         public void setYoutubeid(final String youtube) {
 
-            Toast.makeText(VIdeosActivity.this, youtube, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(VIdeosActivity.this, youtube, Toast.LENGTH_SHORT).show();
 
         ImageView img = mView.findViewById(R.id.img_youtube);
             Picasso.with(VIdeosActivity.this).load("https://i.ytimg.com/vi/"+youtube+"/maxresdefault.jpg").into(img);
