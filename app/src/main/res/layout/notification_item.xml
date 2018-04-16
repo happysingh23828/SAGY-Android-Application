@@ -11,26 +11,26 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:elevation="20dp"
         app:cardCornerRadius="5dp">
-        <TextView
-            android:id="@+id/close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="X"
-            android:layout_margin="5dp"
-            android:textColor="#000"
-            android:layout_gravity="right"/>
+        <!--<TextView-->
+            <!--android:id="@+id/close"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:text="X"-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:textColor="#000"-->
+            <!--android:layout_gravity="right"/>-->
         <ImageView
-            android:layout_marginTop="20dp"
-            android:layout_width="50dp"
-            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
             android:background="@drawable/ic_notifications_none_black_24dp"/>
         <LinearLayout
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +41,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="#00008b"
                 android:textStyle="bold"
-                android:textSize="25sp"
+                android:textSize="20sp"
+                android:lines="1"
                 android:text="Notification Title Here.."
                 />
             <TextView
@@ -51,6 +52,7 @@
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textSize="15sp"
+                android:lines="2"
                 android:text="Lorem Ipsum's origins extend far back to a scrambled Here.."
                 />
 

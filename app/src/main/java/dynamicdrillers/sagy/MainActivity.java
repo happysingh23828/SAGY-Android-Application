@@ -117,11 +117,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(aboutapp);
                         break;
 
-                    case R.id.about_sagy:
-                        drawerLayout.closeDrawer(Gravity.START);
-                        Intent aboutsagy = new Intent(MainActivity.this,AboutSAGYActivity.class);
-                        startActivity(aboutsagy);
-                        break;
+//                    case R.id.about_sagy:
+//                        drawerLayout.closeDrawer(Gravity.START);
+//                        Intent aboutsagy = new Intent(MainActivity.this,AboutSAGYActivity.class);
+//                        startActivity(aboutsagy);
+//                        break;
 
                     case R.id.visit_website:
                         Uri uri = Uri.parse("http://saanjhi.gov.in/");

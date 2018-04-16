@@ -68,12 +68,12 @@ public class NotificationFragment extends Fragment {
 
                         holder.setTitle(model.getTitle());
                         holder.setDescription(model.getDescription());
-                        holder.itemView.findViewById(R.id.close).setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                
-                            }
-                        });
+//                        holder.itemView.findViewById(R.id.close).setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//
+//                            }
+//                        });
 
                     }
 
