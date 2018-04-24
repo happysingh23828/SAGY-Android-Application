@@ -30,7 +30,7 @@ public class SearchVillagesActivity extends AppCompatActivity {
 
     private android.support.v7.widget.Toolbar toolbar;
     private Spinner stateSpinner,districtSpinner;
-    private String state[] = {"Bihar","Jharkhand"};
+    private String state[] = {"Bihar","Jharkhand","Delhi"};
     private String selectedstate="Jharkhand";
     private FirebaseListAdapter<ConstituencyModal> adapter;
     private String id;

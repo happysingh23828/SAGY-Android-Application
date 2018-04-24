@@ -130,12 +130,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="5">
-            <ImageView
-                android:layout_marginTop="30dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:background="@drawable/villageicon"/>
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/villageicon" />
             <LinearLayout
                 android:layout_weight="4"
                 android:layout_marginTop="30dp"
@@ -149,23 +150,25 @@
                     android:orientation="horizontal"
                     android:weightSum="3"
                     android:layout_weight="1">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1.8"
+                        android:gravity="center"
                         android:text="No of Villages"
-                        android:layout_weight="2"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
-                        android:textColor="#00008b"/>
+                        android:textColor="#00008b"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:layout_weight="1"
-                        android:textSize="30sp"
-                        android:layout_marginLeft="15sp"
+                        android:layout_weight="1.2"
+                        android:text="123"
                         android:textColor="@color/colorAccent"
-                        android:text="123"/>
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
                 <TextView
                     android:layout_weight="1"

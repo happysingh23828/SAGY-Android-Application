@@ -36,6 +36,7 @@ public class SearchActivity extends AppCompatActivity {
     LinearLayout village,tahshil,state,mp;
     ImageView back_icon;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

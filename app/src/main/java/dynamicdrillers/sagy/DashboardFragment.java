@@ -47,6 +47,7 @@ public class DashboardFragment extends Fragment {
     private DatabaseReference mDatabase,mpdatabase;
     private FirebaseAuth mAuth,mpAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -217,6 +218,7 @@ public class DashboardFragment extends Fragment {
                 holder.setImage(getContext(),model.getImage());
 
 
+
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -281,6 +283,7 @@ public class DashboardFragment extends Fragment {
             ImageView mimageview = mpView.findViewById(R.id.mp_profile);
             Picasso.with(ctx).load(image).into(mimageview);
         }
+
 
 
     }

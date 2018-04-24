@@ -26,6 +26,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
                 return fragment = new NotificationFragment();
             case 3:
                 return fragment = new RecentActivitiesFragment();
+
             default:
                 return null;
         }
@@ -48,6 +49,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
                     return "Notification";
                 case 3:
                     return "Recent Activity";
+
                 default:
                     return null;
             }

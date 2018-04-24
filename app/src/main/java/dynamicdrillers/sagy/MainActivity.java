@@ -1,6 +1,7 @@
 package dynamicdrillers.sagy;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -116,6 +117,9 @@ public class MainActivity extends AppCompatActivity {
                         Intent aboutapp = new Intent(MainActivity.this,AboutAppActivity.class);
                         startActivity(aboutapp);
                         break;
+
+
+
 
 //                    case R.id.about_sagy:
 //                        drawerLayout.closeDrawer(Gravity.START);
