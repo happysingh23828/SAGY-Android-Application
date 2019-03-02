@@ -12,10 +12,8 @@ App Features:
 * Complain facility will be provided to the users
 * Dashboard showing the overall report about the number of villages adopted , institution associated and the progress of the village.
 
-#Best Minor Project uploaded on Collge's Youtube Channel. 
-<iframe width="100%" height="500"
-src="https://www.youtube.com/watch?v=6zNum28A8YM">
-</iframe>
+# Best Minor Project uploaded on Collge's Youtube Channel. 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6zNum28A8YM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Demo of  App 
   <img src="https://github.com/happysingh23828/SAGY-Android-Application/blob/master/Documentation/screenshots/sagy.gif"></br>
