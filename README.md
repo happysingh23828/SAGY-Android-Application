@@ -12,7 +12,7 @@ App Features:
 * Complain facility will be provided to the users
 * Dashboard showing the overall report about the number of villages adopted , institution associated and the progress of the village.
 
-# Best Minor Project uploaded on Collge's Youtube Channel. 
+# Best Minor Project || Demo uploaded on College's Youtube Channel. 
 https://www.youtube.com/watch?v=6zNum28A8YM&t=7s
 
 # Demo of  App 
